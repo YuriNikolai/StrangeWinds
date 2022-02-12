@@ -5,10 +5,7 @@
 [ext_resource path="res://gfx/tracks.png" type="Texture" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gfx/plane_shadow.png" type="Texture" id=5]
-
-[sub_resource type="Curve" id=1]
-max_value = 1000.0
-_data = [ Vector2( 0.00943396, 954.545 ), 0.0, 1.4, 0, 0, Vector2( 0.976415, 0.0181818 ), 0.0, 0.0, 0, 0 ]
+[ext_resource path="res://artilect.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -31,5 +28,8 @@ texture = ExtResource( 2 )
 [node name="plane_shadow" type="Sprite" parent="Ground"]
 texture = ExtResource( 5 )
 
-[node name="Player2" parent="." instance=ExtResource( 4 )]
-flare_faloff = SubResource( 1 )
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 212, 513 )
+
+[node name="Artilect" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1145, 570 )
