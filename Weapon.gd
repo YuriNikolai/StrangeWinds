@@ -5,7 +5,7 @@ export var rof : float = 1.0
 
 export var damage : float = 1.0
 export var is_hitscan : bool = false
-export var muzzle_vel : int = 1000
+export var muzzle_vel : int = 2000
 export(PackedScene) var projectile
 
 var can_fire : bool = true
