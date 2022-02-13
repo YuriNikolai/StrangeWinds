@@ -6,7 +6,7 @@ enum {
 	DYING
 }
 
-var state = ADVANCING
+var state = SHOOTING
 
 onready var hitbox = $CollisionShape2D
 onready var ap = $AnimationPlayer
