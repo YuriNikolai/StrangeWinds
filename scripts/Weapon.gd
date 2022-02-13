@@ -38,6 +38,7 @@ func fire():
 		line.add_point(point_0)
 		line.add_point(point_4)
 	
+		line.begin_cap_mode = 2
 		line.antialiased = true
 		line.default_color = Color(0.91, 0.6, 0.33, 1)
 		line.width = 3
@@ -45,7 +46,7 @@ func fire():
 		line.z_index = 1
 		get_tree().get_root().add_child(line)
 		
-		tween.interpolate_property(line, "default_color", line.default_color, Color(line.default_color.r, line.default_color.g, line.default_color.b, 0), 0.4, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
+		tween.interpolate_property(line, "default_color", line.default_color, Color(line.default_color.r, line.default_color.g, line.default_color.b, 0), 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
 		tween.start()
 		
 		
