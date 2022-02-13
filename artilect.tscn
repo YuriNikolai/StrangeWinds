@@ -19,18 +19,6 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
 "values": [ 0 ]
 }
 
@@ -40,7 +28,7 @@ length = 1.6
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -52,17 +40,8 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ]
 }
 
-[node name="artilect" type="KinematicBody2D"]
+[node name="Artilect" type="KinematicBody2D"]
 script = ExtResource( 2 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="AreaCollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -5.177, -5.1 )
-rotation = 1.5708
-z_index = 2
-z_as_relative = false
-shape = SubResource( 34 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -5.177, -5.1 )
@@ -74,7 +53,6 @@ shape = SubResource( 34 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 32
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 35 )

@@ -29,7 +29,3 @@ func _process(_delta):
 		DYING:
 			#print ("Dying state")
 			ap.play("shoot")
-
-
-func _on_Player_player_damaged(new_health):
-	new_health = player_health
