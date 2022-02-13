@@ -3,7 +3,7 @@ extends RigidBody2D
 export var flare_lifetime = 4
 onready var _animated_sprite = $AnimatedSprite
 
-#Make anim start on a consistent frame. Keep it at 8 FPS on the editor
+#Make anim start on a consistent frame
 func _ready():
 	_animated_sprite.frame = 0
 

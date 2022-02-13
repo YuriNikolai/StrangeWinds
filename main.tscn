@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://gfx/ground.png" type="Texture" id=1]
 [ext_resource path="res://gfx/plane.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://flare.tscn" type="PackedScene" id=8]
 [ext_resource path="res://InputController.gd" type="Script" id=9]
 [ext_resource path="res://Spawner.gd" type="Script" id=10]
+[ext_resource path="res://gfx/plane_lights.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 171, 565.75 )
@@ -55,7 +56,13 @@ texture = ExtResource( 2 )
 [node name="plane_shadow" type="Sprite" parent="Ground"]
 texture = ExtResource( 5 )
 
+[node name="plane_lights" type="Sprite" parent="Ground"]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+z_index = 1
+texture = ExtResource( 11 )
+
 [node name="Artilect" parent="." instance=ExtResource( 6 )]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
 position = Vector2( 1145, 570 )
 
 [node name="Player" type="Node2D" parent="."]
