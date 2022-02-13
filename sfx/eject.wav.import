@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eject.wav-320d189f407f96f6c0b55f78f8a1ed31.sample"
+
+[deps]
+
+source_file="res://sfx/eject.wav"
+dest_files=[ "res://.import/eject.wav-320d189f407f96f6c0b55f78f8a1ed31.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
