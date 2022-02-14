@@ -5,8 +5,8 @@
 [ext_resource path="res://gfx/artilect-light.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=34]
-radius = 13.1
-height = 16.154
+radius = 18.0
+height = 8.00001
 
 [sub_resource type="Animation" id=35]
 length = 0.1
@@ -99,7 +99,7 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -5.177, -5.1 )
+position = Vector2( -3, -6 )
 rotation = 1.5708
 z_index = 2
 z_as_relative = false

@@ -55,6 +55,7 @@ texture = ExtResource( 4 )
 
 [node name="Artilect" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1145, 570 )
+hp = 5.0
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2( 220, 551 )
@@ -67,9 +68,20 @@ script = ExtResource( 6 )
 
 [node name="Weapon" type="Node2D" parent="Player"]
 script = ExtResource( 5 )
+rof = 3.0
+damage = 1.0
+is_hitscan = true
+muzzle_vel = 1300
+penetrates = true
+max_pen = 3
 projectile = ExtResource( 9 )
 
 [node name="Tween" type="Tween" parent="Player"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 2000 )
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

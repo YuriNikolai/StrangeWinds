@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export var hp : float
+
 enum {
 	ADVANCING,
 	SHOOTING,
@@ -28,3 +30,6 @@ func _process(_delta):
 
 func generate_path():
 	pass
+	
+func hit(dmg):
+	hp -= dmg
