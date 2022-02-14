@@ -40,15 +40,19 @@ func fire():
 						point_1 = (Vector2(point_1.x*2, point_1.y*2)-point_0)
 					line.add_point(point_1)
 				else:
-					line.add_point(multi_scan()[-1])
+					line.add_point(scan[-1])
 				for i in range(0, len(scan)-1):
 					scan[i].hit(damage)
 			else:            #Stopping shot. Will stop on the first collider.
 				line.add_point(raycast.get_collision_point())
 				raycast.get_collider().hit(damage)
 		else:                #Loose shot. Has not collided.
-			while point_1.x < 2000:
-				point_1 = (Vector2(point_1.x*2, point_1.y*2)-point_0)
+			if point_1.x < point_0.x:
+				while point_1.x > -1000:
+					point_1 = (Vector2(point_1.x*2, point_1.y*2)-point_0)
+			else:
+				while point_1.x < 2000:
+					point_1 = (Vector2(point_1.x*2, point_1.y*2)-point_0)
 			line.add_point(point_1)
 			
 		line.begin_cap_mode = 2   #Rounded start
