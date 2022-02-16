@@ -63,7 +63,7 @@ func fire():
 		line.modulate = Color(1.2, 1.2, 1.2, 1);  #Glowing
 		line.z_index = 1
 		get_tree().get_root().add_child(line)
-		tween.interpolate_property(line, "default_color", line.default_color, Color(line.default_color.r, line.default_color.g, line.default_color.b, 0), 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
+		tween.interpolate_property(line, "default_color", line.default_color, Color(line.default_color.r, line.default_color.g, line.default_color.b, 0), 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
 		tween.start()
 		yield(get_tree().create_timer(1/rof), "timeout")
 		can_fire = true
