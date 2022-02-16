@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smokecloud1.png-1b35cffd9515608c2a45186b9e8d4a2b.stex"
+path="res://.import/smokecloud2.png-8a6e1178ef8d48e138a5b68c269ba815.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/smokecloud1.png"
-dest_files=[ "res://.import/smokecloud1.png-1b35cffd9515608c2a45186b9e8d4a2b.stex" ]
+source_file="res://gfx/fx/smokecloud2.png"
+dest_files=[ "res://.import/smokecloud2.png-8a6e1178ef8d48e138a5b68c269ba815.stex" ]
 
 [params]
 

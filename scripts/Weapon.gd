@@ -72,7 +72,7 @@ func fire():
 func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with all colliders. 
 				   #Last element of array is the last collision point. If colliding with less than max_pen, last element will be 0,0.
 	var colliders = []
-	for i in range(0, max_pen):
+	for _i in range(0, max_pen):
 		if raycast.get_collider() == null:
 			break
 		else:

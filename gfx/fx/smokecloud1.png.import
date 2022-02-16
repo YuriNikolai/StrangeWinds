@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cratestack3scaled_shadow.png-6459175d9b41646eaaa7b2e1f46a2c8d.stex"
+path="res://.import/smokecloud1.png-4667310fa7b0151a8af10c63d20c656a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/cratestack3scaled_shadow.png"
-dest_files=[ "res://.import/cratestack3scaled_shadow.png-6459175d9b41646eaaa7b2e1f46a2c8d.stex" ]
+source_file="res://gfx/fx/smokecloud1.png"
+dest_files=[ "res://.import/smokecloud1.png-4667310fa7b0151a8af10c63d20c656a.stex" ]
 
 [params]
 

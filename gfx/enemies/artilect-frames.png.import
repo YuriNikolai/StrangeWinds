@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ground.png-47216127ba465d1bf07df589e919618f.stex"
+path="res://.import/artilect-frames.png-a79915fb35c51d0df35db8108ceb3d14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/ground.png"
-dest_files=[ "res://.import/ground.png-47216127ba465d1bf07df589e919618f.stex" ]
+source_file="res://gfx/enemies/artilect-frames.png"
+dest_files=[ "res://.import/artilect-frames.png-a79915fb35c51d0df35db8108ceb3d14.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

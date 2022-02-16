@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plane_shadow.png-601a859d67ab62b6f35aa706aabdf32e.stex"
+path="res://.import/plane_shadow.png-7448f636483c98622e26b8ef66ed3c14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/plane_shadow.png"
-dest_files=[ "res://.import/plane_shadow.png-601a859d67ab62b6f35aa706aabdf32e.stex" ]
+source_file="res://gfx/plane/plane_shadow.png"
+dest_files=[ "res://.import/plane_shadow.png-7448f636483c98622e26b8ef66ed3c14.stex" ]
 
 [params]
 

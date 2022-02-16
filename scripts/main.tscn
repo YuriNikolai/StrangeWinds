@@ -1,16 +1,15 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://gfx/ground.png" type="Texture" id=1]
-[ext_resource path="res://gfx/plane.png" type="Texture" id=2]
-[ext_resource path="res://gfx/tracks.png" type="Texture" id=3]
-[ext_resource path="res://gfx/plane_shadow.png" type="Texture" id=4]
+[ext_resource path="res://gfx/world/ground.png" type="Texture" id=1]
+[ext_resource path="res://gfx/plane/plane.png" type="Texture" id=2]
+[ext_resource path="res://gfx/plane/tracks.png" type="Texture" id=3]
+[ext_resource path="res://gfx/plane/plane_shadow.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Weapon.gd" type="Script" id=5]
-[ext_resource path="res://scripts/InputController.gd" type="Script" id=6]
 [ext_resource path="res://scripts/Spawner.gd" type="Script" id=7]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=8]
 [ext_resource path="res://weapons/projectiles/flare.tscn" type="PackedScene" id=9]
-[ext_resource path="res://enemies/artilect.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gfx/plane_lights.png" type="Texture" id=11]
+[ext_resource path="res://scenes/artilect.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gfx/plane/plane_lights.png" type="Texture" id=11]
 [ext_resource path="res://scripts/PlaneLights.gd" type="Script" id=12]
 [ext_resource path="res://scripts/Plane.gd" type="Script" id=13]
 
@@ -29,6 +28,17 @@ glow_hdr_scale = 0.0
 adjustment_enabled = true
 adjustment_brightness = 0.77
 adjustment_saturation = 1.03
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Node
+
+onready var weapon = get_parent().get_node(\"Weapon\")
+
+func _process(delta):
+	if Input.is_action_pressed(\"fire\") and weapon.can_fire:
+		weapon.fire()
+		owner.get_node(\"Plane\").hit(100)
+"
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 171, 565.75 )
@@ -91,13 +101,12 @@ __meta__ = {
 }
 
 [node name="InputController" type="Node" parent="Player"]
-script = ExtResource( 6 )
+script = SubResource( 6 )
 
 [node name="Weapon" type="Node2D" parent="Player"]
 script = ExtResource( 5 )
 rof = 3.0
 damage = 1.0
-is_hitscan = true
 muzzle_vel = 1300
 penetrates = true
 max_pen = 3
@@ -135,5 +144,4 @@ curve = SubResource( 3 )
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 963, 193 )
 
-[connection signal="tween_completed" from="Plane/Tween" to="Plane/PlaneLights" method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_Timer_timeout"]

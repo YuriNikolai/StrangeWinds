@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tracks.png-3a55dae82d6f3323d9e57332e8700103.stex"
+path="res://.import/artilect-light.png-bf0e0c4eb3cb6668d32f1ae5b9387a0a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/tracks.png"
-dest_files=[ "res://.import/tracks.png-3a55dae82d6f3323d9e57332e8700103.stex" ]
+source_file="res://gfx/enemies/artilect-light.png"
+dest_files=[ "res://.import/artilect-light.png-bf0e0c4eb3cb6668d32f1ae5b9387a0a.stex" ]
 
 [params]
 

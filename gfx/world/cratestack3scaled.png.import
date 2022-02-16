@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plane.png-df6b6e3c11d82860e595051084eceaeb.stex"
+path="res://.import/cratestack3scaled.png-9c55e589a5010debee456276705a3223.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/plane.png"
-dest_files=[ "res://.import/plane.png-df6b6e3c11d82860e595051084eceaeb.stex" ]
+source_file="res://gfx/world/cratestack3scaled.png"
+dest_files=[ "res://.import/cratestack3scaled.png-9c55e589a5010debee456276705a3223.stex" ]
 
 [params]
 
