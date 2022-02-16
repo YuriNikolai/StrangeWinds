@@ -50,7 +50,7 @@
 [ext_resource path="res://gfx/flare/efecto_fuego_00035.png" type="Texture" id=48]
 [ext_resource path="res://gfx/flare/efecto_fuego_00038.png" type="Texture" id=49]
 [ext_resource path="res://gfx/flare/efecto_fuego_00008.png" type="Texture" id=50]
-[ext_resource path="res://scripts/flare.gd" type="Script" id=51]
+[ext_resource path="res://scripts/Flare.gd" type="Script" id=51]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -82,7 +82,7 @@ shape = SubResource( 1 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
 animation = "flare"
-frame = 8
+frame = 1
 playing = true
 
 [node name="LifeTimer" type="Timer" parent="."]
