@@ -41,9 +41,9 @@ func _process(delta):
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 171, 565.75 )
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=7]
 _data = {
-"points": PoolVector2Array(  )
+"points": PoolVector2Array( 50.5542, 469.761, -50.5542, -469.761, 778, 21, 0, 0, 0, 0, 2222, -392 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -134,10 +134,12 @@ wait_time = 0.2
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 3, 8 )
-curve = SubResource( 3 )
+visible = false
+position = Vector2( -304, 467 )
+curve = SubResource( 7 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 963, 193 )
+position = Vector2( 778, 21 )
+rotation = -1.66848
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_Timer_timeout"]
