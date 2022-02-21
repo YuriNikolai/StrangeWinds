@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gfx/gui/DynFont64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://gfx/gui/MenuButtonStyle.tres" type="Theme" id=3]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_top = 100.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DaySelectButton" type="Button" parent="HBoxContainer"]
+margin_left = 508.0
+margin_right = 958.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 450, 100 )
+focus_neighbour_left = NodePath("../QuitButton")
+size_flags_vertical = 4
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Select Day"
+
+[node name="QuitButton" type="Button" parent="HBoxContainer"]
+margin_left = 962.0
+margin_right = 1412.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 450, 100 )
+focus_neighbour_right = NodePath("../DaySelectButton")
+size_flags_vertical = 4
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "QUIT GAME"
+
+[connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

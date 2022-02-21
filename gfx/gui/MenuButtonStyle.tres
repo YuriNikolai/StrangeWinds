@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=2]
+
+[sub_resource type="StyleBoxTexture" id=5]
+
+[sub_resource type="StyleBoxTexture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+
+[sub_resource type="StyleBoxTexture" id=4]
+
+[resource]
+Button/colors/font_color_focus = Color( 0.933333, 0.701961, 0, 1 )
+Button/colors/font_color_hover = Color( 0.933333, 0.701961, 0, 1 )
+Button/colors/font_color_pressed = Color( 1, 0.513726, 0, 1 )
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 4 )
