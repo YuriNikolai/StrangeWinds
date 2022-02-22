@@ -73,9 +73,6 @@ texture = ExtResource( 1 )
 z_as_relative = false
 texture = ExtResource( 9 )
 
-[node name="Artilect" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1145, 570 )
-
 [node name="Player" type="Node2D" parent="."]
 position = Vector2( 220, 551 )
 z_index = 2
@@ -120,7 +117,7 @@ script = ExtResource( 4 )
 enemy = ExtResource( 10 )
 
 [node name="Timer" type="Timer" parent="Spawner"]
-wait_time = 0.2
+wait_time = 0.1
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="."]
