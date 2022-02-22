@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/artilect-walk.png-c94fdbef880b534cc04c0ccfc8af16f7.stex"
+path="res://.import/artilect-combined-sheet.png-c595fe9544e287afc4f7cde6a3739100.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/enemies/artilect-walk.png"
-dest_files=[ "res://.import/artilect-walk.png-c94fdbef880b534cc04c0ccfc8af16f7.stex" ]
+source_file="res://gfx/enemies/artilect-combined-sheet.png"
+dest_files=[ "res://.import/artilect-combined-sheet.png-c595fe9544e287afc4f7cde6a3739100.stex" ]
 
 [params]
 
