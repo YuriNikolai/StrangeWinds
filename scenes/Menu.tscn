@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gfx/gui/DynFont64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://gfx/gui/MenuButtonStyle.tres" type="Theme" id=3]
 [ext_resource path="res://gfx/gui/w34front_bw.png" type="Texture" id=4]
+[ext_resource path="res://gfx/gui/RETRO_SPACE_INV.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+font_data = ExtResource( 5 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -24,19 +34,29 @@ __meta__ = {
 }
 
 [node name="DaySelectButton" type="Button" parent="HBoxContainer"]
-margin_left = 508.0
-margin_right = 958.0
+margin_left = 281.0
+margin_right = 731.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
 focus_neighbour_left = NodePath("../QuitButton")
 size_flags_vertical = 4
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
-text = "Select Day"
+text = "START GAME"
+
+[node name="CreditsButton" type="Button" parent="HBoxContainer"]
+margin_left = 735.0
+margin_right = 1185.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 450, 100 )
+size_flags_vertical = 4
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "CREDITS"
 
 [node name="QuitButton" type="Button" parent="HBoxContainer"]
-margin_left = 962.0
-margin_right = 1412.0
+margin_left = 1189.0
+margin_right = 1639.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
 focus_neighbour_right = NodePath("../DaySelectButton")
@@ -50,4 +70,33 @@ position = Vector2( 960, 540 )
 z_index = -1
 texture = ExtResource( 4 )
 
+[node name="CreditsLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 210.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CreditsLayer/RichTextLabel"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.682353 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/CreditsButton" to="CreditsLayer/RichTextLabel" method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

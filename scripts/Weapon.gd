@@ -2,13 +2,17 @@ extends Node2D
 
 # in rounds per second
 export var rof : float
-
 export var damage : float
 export var is_hitscan : bool
 export var muzzle_vel : int
 export var penetrates : bool
 export var max_pen : int
 export(PackedScene) var projectile
+
+var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
+
+var sfx_flare_shoot = preload("res://sfx/flare_shoot.wav")
+var sfx_flare_load1 = preload("res://sfx/flare_load1.wav")
 
 onready var tween = get_parent().get_node("Tween")
 onready var raycast = get_parent().get_node("RayCast2D")
@@ -17,12 +21,22 @@ var can_fire : bool = true
 func fire():
 	if !is_hitscan:
 		can_fire = false
+		
+		var sound = AudioStreamer.instance()
+		add_child(sound)
+		sound.play_sound(sfx_flare_shoot)
+		
 		var projectile_instance = projectile.instance()
 		projectile_instance.position = get_global_position()
 		projectile_instance.rotation = get_parent().rotation
 		projectile_instance.apply_impulse(Vector2(), Vector2(muzzle_vel, 0).rotated(get_parent().rotation))
 		get_tree().get_root().add_child(projectile_instance)
 		yield(get_tree().create_timer(1/rof), "timeout")
+		
+#		sound = AudioStreamer.instance()
+#		add_child(sound)
+#		sound.play_sound(sfx_flare_load1)
+		
 		can_fire = true
 	else:
 		can_fire = false

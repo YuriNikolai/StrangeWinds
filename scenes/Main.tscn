@@ -89,7 +89,6 @@ script = ExtResource( 13 )
 script = ExtResource( 12 )
 rof = 3.0
 damage = 1.0
-is_hitscan = true
 muzzle_vel = 1300
 penetrates = true
 max_pen = 3
