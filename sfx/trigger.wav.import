@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/dry_fire.wav-864e38c7f736f5b749c56d89062ea02d.sample"
+path="res://.import/trigger.wav-5860308e17818192ddd48d5a38670e4c.sample"
 
 [deps]
 
-source_file="res://sfx/dry_fire.wav"
-dest_files=[ "res://.import/dry_fire.wav-864e38c7f736f5b749c56d89062ea02d.sample" ]
+source_file="res://sfx/trigger.wav"
+dest_files=[ "res://.import/trigger.wav-5860308e17818192ddd48d5a38670e4c.sample" ]
 
 [params]
 
