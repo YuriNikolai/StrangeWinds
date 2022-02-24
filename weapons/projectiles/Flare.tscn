@@ -81,11 +81,15 @@ shape = SubResource( 1 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
 animation = "flare"
-frame = 49
+frame = 19
 playing = true
 
 [node name="LifeTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 20, 0 )
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]

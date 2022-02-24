@@ -2,4 +2,4 @@
 
 * https://itch.io/jam/opengameart-winter-game-jam-2022
 
-Consider for joining w/ standard light system: https://godotshaders.com/shader/2d-rim-light-2/
+Consider for handling dialogue, intro "cutscene" etc: https://github.com/KoBeWi/Godot-Text-Database

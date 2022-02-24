@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var hp : float
+export var hp = 10
 export var attack_range = 600
 export var speed = 100
 
@@ -19,18 +19,22 @@ var state = ADVANCING
 
 onready var hitbox = $CollisionShape2D
 onready var ap = $AnimationPlayer
+var dead = false
+var shot = false
 
 func _ready():
 	target_vector = (target-global_position).normalized()*speed
 
 func _physics_process(delta):
-	if position.distance_to(target) < 50 or position.x < target.x:
-		state = DYING
-	else:
+	print (hp)
+	if (position.distance_to(target) < 50 or position.x < target.x) and (state != SHOOTING):
+		state = SHOOTING
+	elif state == ADVANCING:
 		move_and_slide(target_vector/rand_range(90, 110)*speed)
 		
 
 func _process(_delta):
+#	print(ap.current_animation)
 	look_at(player_pos)
 	match state:
 		ADVANCING:
@@ -38,10 +42,17 @@ func _process(_delta):
 			ap.play("advance")
 		SHOOTING:
 			#print ("Shooting state")
-			ap.play("shoot")
+			if !shot:
+				shot = true
+				ap.play("shoot")
 		DYING:
-			#print ("Dying state")
-			ap.play("die")
+			#print ("dying state")
+			if !dead:
+				dead = true
+				ap.play("die")
+			
 	
 func hit(dmg):
 	hp -= dmg
+	if hp <= 0:
+		state = DYING

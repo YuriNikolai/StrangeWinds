@@ -1,8 +1,8 @@
 extends Node2D
 
-# in rounds per second
-export var rof : float
-export var damage : float
+
+export var rof : float # in rounds per second
+export var rifle_damage = 10
 export var is_hitscan : bool
 export var muzzle_vel : int
 export var penetrates : bool
@@ -56,10 +56,10 @@ func fire():
 				else:
 					line.add_point(scan[-1])
 				for i in range(0, len(scan)-1):
-					scan[i].hit(damage)
+					scan[i].hit(rifle_damage)
 			else:            #Stopping shot. Will stop on the first collider.
 				line.add_point(raycast.get_collision_point())
-				raycast.get_collider().hit(damage)
+				raycast.get_collider().hit(rifle_damage)
 		else:                #Loose shot. Has not collided.
 			if point_1.x < point_0.x:
 				while point_1.x > -1000:
@@ -81,8 +81,8 @@ func fire():
 		tween.interpolate_property(line, "default_color", line.default_color, Color(line.default_color.r, line.default_color.g, line.default_color.b, 0), 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
 		tween.start()
 		yield(get_tree().create_timer(1/rof), "timeout")
+		line.queue_free()
 		can_fire = true
-
 
 func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with all colliders. 
 				   #Last element of array is the last collision point. If colliding with less than max_pen, last element will be 0,0.
@@ -93,7 +93,7 @@ func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with al
 		else:
 			var curr_collider = raycast.get_collider()
 			colliders.append(curr_collider)
-			print(curr_collider)
+#			print(curr_collider)
 			raycast.add_exception(curr_collider)
 			raycast.force_raycast_update()
 	if len(colliders) > 0 and len(colliders) < max_pen:
@@ -101,5 +101,5 @@ func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with al
 	else:
 		colliders.append(raycast.get_collision_point())
 	raycast.clear_exceptions()
-	print(colliders)
+#	print(colliders)
 	return colliders

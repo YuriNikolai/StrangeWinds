@@ -108,7 +108,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=36]
 resource_name = "shoot"
 length = 1.5
-loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
