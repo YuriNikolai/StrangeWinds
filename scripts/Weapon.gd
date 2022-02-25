@@ -12,17 +12,29 @@ export(PackedScene) var projectile
 var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
 
 var sfx_flare_shoot = preload("res://sfx/flare_shoot.wav")
+var sfx_eject = preload("res://sfx/eject.wav")
 var sfx_flare_load1 = preload("res://sfx/flare_load1.wav")
+var sfx_flare_load2 = preload("res://sfx/flare_load2.wav")
+var sfx_trigger = preload("res://sfx/trigger.wav")
 
 onready var tween = get_parent().get_node("Tween")
 onready var raycast = get_parent().get_node("RayCast2D")
+
 var can_fire : bool = true
+var can_fire_rifle : bool = true
+var loading = false
 
 func fire():
-	if !is_hitscan:
+	if !is_hitscan and can_fire:
 		can_fire = false
 		
 		var sound = AudioStreamer.instance()
+		add_child(sound)
+		sound.play_sound(sfx_trigger)
+		
+		yield(get_tree().create_timer(0.1), "timeout")
+		
+		sound = AudioStreamer.instance()
 		add_child(sound)
 		sound.play_sound(sfx_flare_shoot)
 		
@@ -31,15 +43,12 @@ func fire():
 		projectile_instance.rotation = get_parent().rotation
 		projectile_instance.apply_impulse(Vector2(), Vector2(muzzle_vel, 0).rotated(get_parent().rotation))
 		get_tree().get_root().add_child(projectile_instance)
+		
+		
 		yield(get_tree().create_timer(1/rof), "timeout")
-		
-#		sound = AudioStreamer.instance()
-#		add_child(sound)
-#		sound.play_sound(sfx_flare_load1)
-		
-		can_fire = true
-	else:
-		can_fire = false
+
+	elif can_fire_rifle:
+		can_fire_rifle = false
 		# I   AM  the   SON   of   GOD.
 		var line = Line2D.new()
 		var point_0 = get_parent().get_global_position()
@@ -82,7 +91,7 @@ func fire():
 		tween.start()
 		yield(get_tree().create_timer(1/rof), "timeout")
 		line.queue_free()
-		can_fire = true
+		can_fire_rifle = true
 
 func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with all colliders. 
 				   #Last element of array is the last collision point. If colliding with less than max_pen, last element will be 0,0.
@@ -103,3 +112,30 @@ func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with al
 	raycast.clear_exceptions()
 #	print(colliders)
 	return colliders
+	
+	
+func get_rifle():
+	is_hitscan = true
+	
+func drop_rifle():
+	is_hitscan = false
+	
+func reload():
+	if !loading and !is_hitscan:
+		loading = true
+		var sound = AudioStreamer.instance()
+		add_child(sound)
+		sound.play_sound(sfx_flare_load2)
+
+		sound = AudioStreamer.instance()
+		add_child(sound)
+		sound.play_sound(sfx_eject)
+
+		sound = AudioStreamer.instance()
+		add_child(sound)
+		sound.play_sound(sfx_flare_load1)
+		
+		yield(get_tree().create_timer(1), "timeout")
+		
+		loading = false
+		can_fire = true

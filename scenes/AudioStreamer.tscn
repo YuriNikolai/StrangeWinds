@@ -3,4 +3,5 @@
 [ext_resource path="res://scripts/AudioStreamer.gd" type="Script" id=1]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+volume_db = -5.0
 script = ExtResource( 1 )

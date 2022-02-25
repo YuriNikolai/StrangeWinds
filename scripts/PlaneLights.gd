@@ -11,8 +11,6 @@ var new_mod
 var new_alpha
 
 func update_glow(hp_lost):
-	var tween = Tween.new()
-	get_parent().add_child(tween)
 	
 	if get_parent().hp - hp_lost <= 0:
 		new_mod = MIN_MOD
@@ -21,9 +19,7 @@ func update_glow(hp_lost):
 	else:
 		new_mod = modulate.r - (((MAX_MOD - MIN_MOD) / get_parent().total_hp) * hp_lost)
 		new_alpha = modulate.a - (((1 - MIN_ALPHA) / get_parent().total_hp) * hp_lost)
+		
+	modulate = Color(new_mod, new_mod, new_mod, new_alpha)
 	
-	tween.interpolate_property(self, "modulate", modulate, Color(MIN_MOD, MIN_MOD, MIN_MOD, 0), time, TRANS[rand_range(0,5)], Tween.EASE_IN, 0)
-	tween.start()
-	yield(get_tree().create_timer(time), "timeout")
-	tween.interpolate_property(self, "modulate", modulate, Color(new_mod, new_mod, new_mod, new_alpha), time, TRANS[rand_range(0,5)], Tween.EASE_IN, 0)
-	tween.start()
+	

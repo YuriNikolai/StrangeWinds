@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gfx/gui/DynFont64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
@@ -7,6 +7,20 @@
 [ext_resource path="res://gfx/gui/DynFont32.tres" type="DynamicFont" id=5]
 [ext_resource path="res://scripts/Credits.gd" type="Script" id=6]
 
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_levels/6 = true
+glow_intensity = 1.92
+glow_blend_mode = 0
+glow_hdr_scale = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.77
+adjustment_saturation = 1.03
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,6 +28,9 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -31,9 +48,11 @@ margin_right = 732.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
 focus_neighbour_left = NodePath("../QuitButton")
+focus_mode = 0
 size_flags_vertical = 4
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
 text = "START GAME"
 
 [node name="CreditsButton" type="Button" parent="HBoxContainer"]
@@ -41,9 +60,11 @@ margin_left = 736.0
 margin_right = 1186.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
+focus_mode = 0
 size_flags_vertical = 4
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
 text = "CREDITS"
 
 [node name="QuitButton" type="Button" parent="HBoxContainer"]
@@ -52,9 +73,11 @@ margin_right = 1640.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
 focus_neighbour_right = NodePath("../DaySelectButton")
+focus_mode = 0
 size_flags_vertical = 4
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
 text = "QUIT GAME"
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -88,7 +111,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="mouse_entered" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/CreditsButton" to="CreditsLayer/RichTextLabel" method="_on_CreditsButton_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
