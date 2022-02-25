@@ -12,7 +12,7 @@ func _on_DaySelectButton_pressed():
 	sound = AudioStreamer.instance()
 	add_child(sound)
 	sound.play_sound(sfx_navigation)
-	get_tree().change_scene("res://scenes/Level0.tscn")
+	get_tree().change_scene("res://scenes/Intro.tscn")
 	
 func _on_CreditsButton_pressed():
 	sound = AudioStreamer.instance()
