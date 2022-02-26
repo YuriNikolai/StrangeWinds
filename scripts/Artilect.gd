@@ -27,7 +27,6 @@ func _ready():
 	target_vector = (target-global_position).normalized()*speed
 
 func _physics_process(delta):
-	print (hp)
 	if (position.distance_to(target) < 50 or position.x < target.x) and (state != SHOOTING):
 		state = SHOOTING
 	elif state == ADVANCING:
