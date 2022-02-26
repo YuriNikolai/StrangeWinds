@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/InputController.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Plane.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://gfx/world/barrelsinglescaled.png" type="Texture" id=19]
 [ext_resource path="res://gfx/world/barrelsinglescaled_shadow.png" type="Texture" id=20]
 [ext_resource path="res://scenes/HealthBar.gd" type="Script" id=21]
+[ext_resource path="res://scenes/SpeechBox.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
@@ -176,5 +177,15 @@ begin_cap_mode = 2
 end_cap_mode = 2
 antialiased = true
 script = ExtResource( 21 )
+
+[node name="GUI" type="Control" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="SpeechBox" parent="GUI" instance=ExtResource( 22 )]
+anchor_top = 1.0
+anchor_right = 0.0
+margin_top = -1080.0
+margin_right = 1920.0
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_Timer_timeout"]

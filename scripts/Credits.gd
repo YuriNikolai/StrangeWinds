@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-onready var file = 'res://credits.csv'
+onready var file = 'res://texts/credits.csv'
 
 func _ready():
 	load_file(file)
