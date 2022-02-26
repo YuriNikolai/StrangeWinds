@@ -9,6 +9,7 @@ var target_vector : Vector2
 var target : Vector2
 
 var player_pos = Vector2(220, 551)
+onready var plane = get_parent().get_node("Plane")
 
 enum {
 	ADVANCING,
@@ -68,3 +69,7 @@ func shoot():
 	line.begin_cap_mode = 2
 	line.modulate = Color(1.2, 1.2, 1.2, 1)
 	get_tree().get_root().add_child(line)
+	while(state != DYING):
+		plane.hit(attack_dmg)
+		yield(get_tree().create_timer(1), "timeout")
+	line.queue_free()
