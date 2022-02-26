@@ -133,6 +133,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 31, 31 ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null ],
+"method": "shoot"
+} ]
+}
 
 [node name="Artilect" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -162,3 +176,6 @@ anims/RESET = SubResource( 35 )
 anims/advance = SubResource( 37 )
 anims/die = SubResource( 38 )
 anims/shoot = SubResource( 36 )
+
+[node name="ShootFrom" type="Node2D" parent="."]
+position = Vector2( 41, 17 )

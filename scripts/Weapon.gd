@@ -81,8 +81,7 @@ func fire():
 		line.begin_cap_mode = 2   #Rounded start
 		line.end_cap_mode = 2     #Rounded end
 		line.antialiased = true
-		line.default_color = Color(1, 0.65, 0, 1) #Orange (same values as constant "orange" on the Color class)
-		#line.default_color = Color(0.91, 0.6, 0.33, 1) #Orange (old one)
+		line.default_color = Color.orange
 		line.width = 3
 		line.modulate = Color(1.2, 1.2, 1.2, 1);  #Glowing
 		line.z_index = 1

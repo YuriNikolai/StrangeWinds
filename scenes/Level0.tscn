@@ -45,6 +45,9 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 
+[node name="EnemiesTarget" type="Node2D" parent="."]
+position = Vector2( 201, 571 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
@@ -71,6 +74,8 @@ position = Vector2( -1, 0 )
 z_index = 1
 texture = ExtResource( 13 )
 script = ExtResource( 5 )
+
+[node name="Line2D" type="Line2D" parent="Plane/PlaneLights"]
 
 [node name="PlaneShadow" type="Sprite" parent="Plane"]
 z_as_relative = false

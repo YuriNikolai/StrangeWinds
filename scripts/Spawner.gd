@@ -15,7 +15,7 @@ func spawn():
 	var enemy_instance = enemy.instance()
 	enemy_instance.position = Vector2(get_global_position().x, get_global_position().y + rand_range(-540, 540))
 	enemy_instance.target = generate_target_point(enemy_instance)
-	get_tree().get_root().add_child(enemy_instance)
+	get_parent().add_child(enemy_instance)
 	yield(get_tree().create_timer(0.2), "timeout")
 
 

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var hp = 10
 export var attack_range = 600
+export var attack_dmg = 10
 export var speed = 100
 
 var target_vector : Vector2
@@ -56,3 +57,15 @@ func hit(dmg):
 	hp -= dmg
 	if hp <= 0:
 		state = DYING
+
+func shoot():
+	var line = Line2D.new()
+	line.add_point(to_global($ShootFrom.position))
+	line.add_point(get_parent().get_node("EnemiesTarget").position)
+	line.z_index = 1
+	line.width = 4
+	line.default_color = Color.orange
+	line.end_cap_mode = 2
+	line.begin_cap_mode = 2
+	line.modulate = Color(1.2, 1.2, 1.2, 1)
+	get_tree().get_root().add_child(line)
