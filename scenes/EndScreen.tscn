@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gfx/gui/DynFont64.tres" type="DynamicFont" id=1]
-[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://scripts/EndMenu.gd" type="Script" id=2]
 [ext_resource path="res://gfx/gui/MenuButtonStyle.tres" type="Theme" id=3]
 [ext_resource path="res://gfx/gui/w34front_bw.png" type="Texture" id=4]
 [ext_resource path="res://gfx/gui/DynFont32.tres" type="DynamicFont" id=5]
-[ext_resource path="res://scripts/Credits.gd" type="Script" id=6]
+[ext_resource path="res://gfx/gui/PARPG.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scripts/EndScreenCredits.gd" type="Script" id=7]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -21,27 +22,63 @@ adjustment_enabled = true
 adjustment_brightness = 0.77
 adjustment_saturation = 1.03
 
+[sub_resource type="DynamicFont" id=2]
+size = 80
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_space = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_bottom = 4
+extra_spacing_space = 20
+font_data = ExtResource( 6 )
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
+[node name="Thanks" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.272
+margin_top = 28.0
+margin_bottom = -109.76
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]THANK YOU FOR PLAYING![/center]"
+text = "THANK YOU FOR PLAYING!"
+
+[node name="Blurb" type="RichTextLabel" parent="."]
+anchor_top = 0.14
+anchor_right = 1.0
+anchor_bottom = 0.266
+margin_top = -0.199997
+margin_bottom = -0.279999
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]We hope you enjoyed this 30-day jam project.
+Patches and open-source soon![/center]"
+text = "We hope you enjoyed this 30-day jam project.
+Patches and open-source soon!"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_top = 100.0
+margin_top = 957.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DaySelectButton" type="Button" parent="HBoxContainer"]
-margin_left = 279.0
-margin_right = 732.0
+margin_left = 508.0
+margin_right = 958.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
 focus_neighbour_left = NodePath("../QuitButton")
@@ -50,23 +87,11 @@ size_flags_vertical = 4
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-text = "START GAME"
-
-[node name="CreditsButton" type="Button" parent="HBoxContainer"]
-margin_left = 736.0
-margin_right = 1186.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 450, 100 )
-focus_mode = 0
-size_flags_vertical = 4
-theme = ExtResource( 3 )
-custom_fonts/font = ExtResource( 1 )
-enabled_focus_mode = 0
-text = "CREDITS"
+text = "MAIN MENU"
 
 [node name="QuitButton" type="Button" parent="HBoxContainer"]
-margin_left = 1190.0
-margin_right = 1640.0
+margin_left = 962.0
+margin_right = 1412.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
 focus_neighbour_right = NodePath("../DaySelectButton")
@@ -89,18 +114,15 @@ layer = 10
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
-margin_top = 210.0
+margin_top = 293.0
 margin_right = -10.0
-margin_bottom = -10.0
+margin_bottom = -143.0
 focus_mode = 2
 mouse_default_cursor_shape = 1
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 selection_enabled = true
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="CreditsLayer/RichTextLabel"]
 show_behind_parent = true
@@ -108,17 +130,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.682353 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="mouse_entered" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_pressed"]
-[connection signal="mouse_entered" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="HBoxContainer/CreditsButton" to="CreditsLayer/RichTextLabel" method="_on_CreditsButton_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

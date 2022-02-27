@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var hp = 10
 export var attack_range = 600
-export var attack_dmg = 10
+export var attack_dmg = 30
 export var speed = 100
 
 var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
