@@ -87,6 +87,7 @@ z_as_relative = false
 texture = ExtResource( 4 )
 
 [node name="Crates" type="Sprite" parent="Plane"]
+visible = false
 position = Vector2( -915, 43 )
 texture = ExtResource( 15 )
 
@@ -95,6 +96,7 @@ show_behind_parent = true
 texture = ExtResource( 16 )
 
 [node name="Barrels" type="Sprite" parent="Plane"]
+visible = false
 position = Vector2( -803, -234 )
 texture = ExtResource( 17 )
 
@@ -103,6 +105,7 @@ show_behind_parent = true
 texture = ExtResource( 18 )
 
 [node name="Barrel" type="Sprite" parent="Plane"]
+visible = false
 position = Vector2( -703, -233 )
 texture = ExtResource( 19 )
 
@@ -151,7 +154,7 @@ position = Vector2( 165, 567.25 )
 shape = SubResource( 5 )
 
 [node name="Spawner" type="Node2D" parent="."]
-position = Vector2( 1800, 540 )
+position = Vector2( 1980, 540 )
 script = ExtResource( 7 )
 enemy = ExtResource( 10 )
 

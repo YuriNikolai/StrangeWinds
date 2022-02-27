@@ -17,9 +17,6 @@ var finished = false
 
 
 func _ready():
-	sound = AudioStreamer.instance()
-	add_child(sound)
-	sound.play_sound(sfx_wind_loop)
 	
 	$Timer.wait_time = textSpeed
 	dialog = getDialog()
