@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var hp = 10
 export var attack_range = 600
 export var attack_dmg = 10
-export var speed = 100
+export var speed = 1000
 
 var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
 var sfx_artilect_beam = preload("res://sfx/rlaunch.wav")
@@ -56,7 +56,8 @@ func _process(_delta):
 				dead = true
 				ap.play("die")
 				hitbox.set_deferred("disabled", true)
-			
+				yield(get_tree().create_timer(5), "timeout")
+				call_deferred("free")
 	
 func hit(dmg):
 	
@@ -82,11 +83,11 @@ func shoot():
 	line.z_index = 1
 	line.width = 4
 	line.default_color = Color.orange
-	line.end_cap_mode = 2
-	line.begin_cap_mode = 2
+	line.end_cap_mode = 2               #Rounded start
+	line.begin_cap_mode = 2             #Rounded end
 	line.modulate = Color(1.2, 1.2, 1.2, 1)
 	get_tree().get_root().add_child(line)
 	while(state != DYING):
 		plane.hit(attack_dmg)
 		yield(get_tree().create_timer(1), "timeout")
-	line.queue_free() #not working
+	line.queue_free() #not working, line stays forever even after death
