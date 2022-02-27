@@ -1,6 +1,6 @@
 extends ColorRect
 
-var day = 0
+var day = Global.day
 
 var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
 var sfx_wind_loop = preload("res://sfx/wind_loop.ogg")
@@ -60,13 +60,9 @@ func nextPhrase() -> void:
 		add_child(sound)
 		sound.play_sound(sfx_navigation)
 	
-	if phraseNum >= len(dialog) and dialogPath == "res://texts/day0.json": #Intro
+	if phraseNum >= len(dialog):
 		root.queue_free()
 		get_tree().change_scene("res://scenes/Level0.tscn")
-		return
-	
-	elif phraseNum >= len(dialog):
-		root.queue_free()
 		return
 	
 	finished = false

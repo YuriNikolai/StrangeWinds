@@ -1,7 +1,8 @@
 extends Node2D
 
 
-export var rof : float # in rounds per second
+export var flare_rof : float # in rounds per second
+export var rifle_rof : float # in rounds per second
 export var rifle_damage = 10
 export var is_hitscan : bool
 export var muzzle_vel : int
@@ -22,8 +23,12 @@ onready var tween = get_parent().get_node("Tween")
 onready var raycast = get_parent().get_node("RayCast2D")
 
 var can_fire : bool = true
-var can_fire_rifle : bool = true
+var can_fire_rifle : bool = false
 var loading = false
+
+func _ready():
+	if Global.day > 1:
+		can_fire_rifle = true
 
 func fire():
 	if !is_hitscan and can_fire:
@@ -46,7 +51,7 @@ func fire():
 		get_tree().get_root().add_child(projectile_instance)
 		
 		
-		yield(get_tree().create_timer(1/rof), "timeout")
+		yield(get_tree().create_timer(1/flare_rof), "timeout")
 
 	elif can_fire_rifle:
 		
@@ -94,7 +99,7 @@ func fire():
 		get_tree().get_root().add_child(line)
 		tween.interpolate_property(line, "default_color", line.default_color, Color(line.default_color.r, line.default_color.g, line.default_color.b, 0), 0.2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
 		tween.start()
-		yield(get_tree().create_timer(1/rof), "timeout")
+		yield(get_tree().create_timer(1/rifle_rof), "timeout")
 		line.queue_free()
 		can_fire_rifle = true
 

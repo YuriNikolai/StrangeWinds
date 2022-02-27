@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var hp = 10
 export var attack_range = 600
 export var attack_dmg = 10
-export var speed = 1000
+export var speed = 100
 
 var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
 var sfx_artilect_beam = preload("res://sfx/rlaunch.wav")
@@ -56,6 +56,7 @@ func _process(_delta):
 				dead = true
 				ap.play("die")
 				hitbox.set_deferred("disabled", true)
+				Global.population -= 1
 				yield(get_tree().create_timer(5), "timeout")
 				call_deferred("free")
 	

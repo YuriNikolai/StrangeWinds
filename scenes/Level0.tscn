@@ -124,7 +124,8 @@ script = ExtResource( 1 )
 
 [node name="Weapon" type="Node2D" parent="Player"]
 script = ExtResource( 8 )
-rof = 1.0
+flare_rof = 1.0
+rifle_rof = 0.2
 muzzle_vel = 1300
 penetrates = true
 max_pen = 3

@@ -12,7 +12,7 @@ func _process(_delta):
 	if Input.is_action_just_released("fire"):
 		weapon.reload()
 		
-	if Input.is_action_just_pressed("rifle"):
+	if Input.is_action_just_pressed("rifle") and Global.day > 1:
 		weapon.get_rifle()
 		
 	if Input.is_action_just_released("rifle"):
