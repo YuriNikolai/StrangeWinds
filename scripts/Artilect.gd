@@ -5,6 +5,10 @@ export var attack_range = 600
 export var attack_dmg = 10
 export var speed = 100
 
+var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
+var sfx_artilect_beam = preload("res://sfx/rlaunch.wav")
+var sfx_boom = preload("res://sfx/boom.wav")
+
 var target_vector : Vector2
 var target : Vector2
 
@@ -55,11 +59,23 @@ func _process(_delta):
 			
 	
 func hit(dmg):
+	
 	hp -= dmg
 	if hp <= 0:
 		state = DYING
+	
+	var sound = AudioStreamer.instance()
+	add_child(sound)
+	sound.play_sound(sfx_boom) #this is here and not on the flare script for now until i debug the sound cutoff that happens there
+	
+	$CPUParticles2D.emitting = true
 
 func shoot():
+	
+	var sound = AudioStreamer.instance()
+	add_child(sound)
+	sound.play_sound(sfx_artilect_beam)
+	
 	var line = Line2D.new()
 	line.add_point(to_global($ShootFrom.position))
 	line.add_point(get_parent().get_node("EnemiesTarget").position)
@@ -73,4 +89,4 @@ func shoot():
 	while(state != DYING):
 		plane.hit(attack_dmg)
 		yield(get_tree().create_timer(1), "timeout")
-	line.queue_free()
+	line.queue_free() #not working

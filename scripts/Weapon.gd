@@ -16,6 +16,7 @@ var sfx_eject = preload("res://sfx/eject.wav")
 var sfx_flare_load1 = preload("res://sfx/flare_load1.wav")
 var sfx_flare_load2 = preload("res://sfx/flare_load2.wav")
 var sfx_trigger = preload("res://sfx/trigger.wav")
+var sfx_rifle_shoot = preload("res://sfx/rifle_shoot.wav")
 
 onready var tween = get_parent().get_node("Tween")
 onready var raycast = get_parent().get_node("RayCast2D")
@@ -48,6 +49,11 @@ func fire():
 		yield(get_tree().create_timer(1/rof), "timeout")
 
 	elif can_fire_rifle:
+		
+		var sound = AudioStreamer.instance()
+		add_child(sound)
+		sound.play_sound(sfx_rifle_shoot)
+		
 		can_fire_rifle = false
 		# I   AM  the   SON   of   GOD.
 		var line = Line2D.new()

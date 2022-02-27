@@ -22,4 +22,3 @@ func update_glow(hp_lost):
 		
 	modulate = Color(new_mod, new_mod, new_mod, new_alpha)
 	
-	

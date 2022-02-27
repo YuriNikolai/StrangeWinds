@@ -80,7 +80,7 @@ shape = SubResource( 1 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
 animation = "flare"
-frame = 39
+frame = 34
 playing = true
 
 [node name="LifeTimer" type="Timer" parent="."]
