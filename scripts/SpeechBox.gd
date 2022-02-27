@@ -1,11 +1,13 @@
 extends ColorRect
 
-var day = 1
+var day = 0
 
 var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
 var sfx_wind_loop = preload("res://sfx/wind_loop.ogg")
 var sfx_navigation = preload("res://sfx/navigation.wav")
 var sound = AudioStreamer.instance()
+
+onready var root = get_node("../..")
 
 var dialogPath : String
 export(float) var textSpeed = 0.05
@@ -27,7 +29,7 @@ func _ready():
 
 func _process(_delta):
 	$Marker.visible = finished
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("fire") and root.visible == true: #We use visibility to control when speechbox appears on the intro
 		if finished:
 			nextPhrase()
 		else:
@@ -53,14 +55,18 @@ func getDialog() -> Array:
 
 func nextPhrase() -> void:
 	
-	if phraseNum > 0:
+	if phraseNum > 0 and root.visible == true:
 		sound = AudioStreamer.instance()
 		add_child(sound)
 		sound.play_sound(sfx_navigation)
 	
-	if phraseNum >= len(dialog):
-		queue_free()
+	if phraseNum >= len(dialog) and dialogPath == "res://texts/day0.json": #Intro
+		root.queue_free()
 		get_tree().change_scene("res://scenes/Level0.tscn")
+		return
+	
+	elif phraseNum >= len(dialog):
+		root.queue_free()
 		return
 	
 	finished = false

@@ -51,6 +51,7 @@ func _process(_delta):
 			if !dead:
 				dead = true
 				ap.play("die")
+				hitbox.set_deferred("disabled", true)
 			
 	
 func hit(dmg):

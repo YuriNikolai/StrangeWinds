@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=2]
 
-[ext_resource path="res://scenes/DialogBox.gd" type="Script" id=1]
+[ext_resource path="res://scripts/SpeechBox.gd" type="Script" id=1]
 [ext_resource path="res://gfx/gui/PARPG.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://gfx/gui/navigator_portrait.png" type="Texture" id=3]
 [ext_resource path="res://gfx/gui/DynFont32.tres" type="DynamicFont" id=4]
@@ -183,7 +183,7 @@ animations = [ {
 "speed": 16.0
 } ]
 
-[node name="Control" type="Control"]
+[node name="SpeechBox" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -233,7 +233,7 @@ one_shot = true
 position = Vector2( 166, 162 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 34 )
-frame = 8
+frame = 28
 playing = true
 
 [node name="PortraitFrame" type="ColorRect" parent="Frame/ColorRect/AnimatedSprite"]

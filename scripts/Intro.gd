@@ -5,9 +5,9 @@ var sfx_wind_loop = preload("res://sfx/wind_loop.ogg")
 var sfx_navigation = preload("res://sfx/navigation.wav")
 var sound = AudioStreamer.instance()
 
-#Stripped down version of dialog box code
+#Modded and less procedural version of dialog box code
 
-export var dialogPath = ""
+export var dialogPath = "res://texts/intro.json"
 export(float) var textSpeed = 0.05
 
 var dialog
@@ -23,11 +23,13 @@ func _ready():
 	
 	$Timer.wait_time = textSpeed
 	dialog = getDialog()
-	assert (dialog, "Dialog not found")
+	assert (dialog, "Dialog malformatted or not found")
 	nextPhrase()
 
 func _process(_delta):
+	
 	if Input.is_action_just_pressed("fire"):
+		#print(phraseNum)
 		if finished:
 			nextPhrase()
 		else:
@@ -48,14 +50,13 @@ func getDialog() -> Array:
 		return []
 func nextPhrase() -> void:
 	
-	if phraseNum > 0:
+	if phraseNum > 0 and get_parent().get_node("SpeechBox").visible == false:
 		sound = AudioStreamer.instance()
 		add_child(sound)
 		sound.play_sound(sfx_navigation)
 	
 	if phraseNum >= len(dialog):
-		queue_free()
-		get_tree().change_scene("res://scenes/Level0.tscn")
+		get_parent().get_node("SpeechBox").visible = true #i don't know why but speechbox only becomes visible after the first, so i had to add an empty dialog line to day0.json. #TODO debug so sound plays nicely.
 		return
 	
 	finished = false
