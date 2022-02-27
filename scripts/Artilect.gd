@@ -68,7 +68,7 @@ func hit(dmg):
 	
 	var sound = AudioStreamer.instance()
 	add_child(sound)
-	sound.play_sound(sfx_boom) #this is here and not on the flare script for now until i debug the sound cutoff that happens there
+	sound.play_sound(sfx_boom) 
 	
 	$CPUParticles2D.emitting = true
 

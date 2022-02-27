@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gfx/enemies/artilect-combined-sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Artilect.gd" type="Script" id=2]
 [ext_resource path="res://gfx/enemies/artilect-light.png" type="Texture" id=3]
+[ext_resource path="res://gfx/enemies/artilectblood_death.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=34]
 radius = 18.0
@@ -46,6 +47,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite_blood:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite_blood:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=37]
 resource_name = "advance"
@@ -75,6 +100,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 4, 4, 4, 4, 3, 2, 1, 0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite_blood:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=38]
 resource_name = "die"
@@ -103,6 +140,30 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite_blood:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite_blood:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -147,6 +208,18 @@ tracks/2/keys = {
 "method": "shoot"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite_blood:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Artilect" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -170,6 +243,13 @@ rotation = -1.5708
 texture = ExtResource( 3 )
 hframes = 32
 frame = 1
+
+[node name="Sprite_blood" type="Sprite" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+show_behind_parent = true
+rotation = -1.5708
+texture = ExtResource( 4 )
+hframes = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 35 )
