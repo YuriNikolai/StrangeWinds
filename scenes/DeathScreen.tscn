@@ -31,6 +31,9 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -76,13 +79,12 @@ size_flags_vertical = 4
 theme = ExtResource( 4 )
 custom_fonts/font = ExtResource( 5 )
 enabled_focus_mode = 0
-text = "QUIT GAME"
+text = "QUIT"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 z_index = -1
 texture = ExtResource( 3 )
-
 [connection signal="mouse_entered" from="HBoxContainer/RetryButton" to="." method="_on_RetryButton_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/RetryButton" to="." method="_on_RetryButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/RetryButton" to="." method="_on_RetryButton_pressed"]

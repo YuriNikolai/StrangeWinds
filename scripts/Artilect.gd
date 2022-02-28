@@ -57,8 +57,6 @@ func _process(_delta):
 				ap.play("die")
 				hitbox.set_deferred("disabled", true)
 				Global.population -= 1
-				yield(get_tree().create_timer(5), "timeout")
-				call_deferred("free")
 	
 func hit(dmg):
 	

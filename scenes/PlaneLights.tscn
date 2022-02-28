@@ -18,5 +18,4 @@ autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

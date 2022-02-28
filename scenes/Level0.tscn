@@ -22,7 +22,7 @@
 [ext_resource path="res://gfx/world/barrelsinglescaled_shadow.png" type="Texture" id=20]
 [ext_resource path="res://scripts/HealthBar.gd" type="Script" id=21]
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
 glow_levels/1 = true
@@ -36,10 +36,10 @@ adjustment_enabled = true
 adjustment_brightness = 0.77
 adjustment_saturation = 1.03
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 171, 565.75 )
 
-[sub_resource type="Curve2D" id=7]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 50.5542, 469.761, -50.5542, -469.761, 778, 21, 0, 0, 0, 0, 2222, -392 )
 }
@@ -50,7 +50,7 @@ _data = {
 position = Vector2( 201, 571 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1
@@ -151,7 +151,7 @@ position = Vector2( 2000, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 165, 567.25 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2( 1980, 540 )
@@ -164,7 +164,7 @@ autostart = true
 [node name="Path2D" type="Path2D" parent="."]
 visible = false
 position = Vector2( -304, 467 )
-curve = SubResource( 7 )
+curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 778, 21 )
@@ -180,5 +180,4 @@ begin_cap_mode = 2
 end_cap_mode = 2
 antialiased = true
 script = ExtResource( 21 )
-
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_Timer_timeout"]

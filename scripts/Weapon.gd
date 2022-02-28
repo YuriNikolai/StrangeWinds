@@ -54,7 +54,7 @@ func fire():
 		
 		yield(get_tree().create_timer(1/flare_rof), "timeout")
 
-	elif can_fire_rifle:
+	elif can_fire_rifle and is_hitscan:
 		
 		var sound = AudioStreamer.instance()
 		add_child(sound)

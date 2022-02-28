@@ -1,3 +1,13 @@
 [remap]
 
-importer="keep"
+importer="csv_translation"
+type="Translation"
+valid=false
+
+[deps]
+
+source_file="res://texts/credits.csv"
+[params]
+
+compress=true
+delimiter=0

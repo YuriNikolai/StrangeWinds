@@ -5,11 +5,11 @@
 [ext_resource path="res://gfx/enemies/artilect-light.png" type="Texture" id=3]
 [ext_resource path="res://gfx/enemies/artilectblood_death.png" type="Texture" id=4]
 
-[sub_resource type="CapsuleShape2D" id=34]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 18.0
 height = 0.0
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=2]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -72,7 +72,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=3]
 resource_name = "advance"
 length = 2.3
 loop = true
@@ -113,7 +113,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=4]
 resource_name = "die"
 length = 1.2
 step = 0.05
@@ -166,7 +166,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=5]
 resource_name = "shoot"
 length = 1.5
 step = 0.05
@@ -229,13 +229,13 @@ position = Vector2( -8, 3 )
 rotation = 1.5708
 z_index = 2
 z_as_relative = false
-shape = SubResource( 34 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.5708
 texture = ExtResource( 1 )
-hframes = 32
 vframes = 3
+hframes = 32
 
 [node name="Sprite_glow" type="Sprite" parent="."]
 modulate = Color( 2, 2, 2, 1 )
@@ -252,10 +252,10 @@ texture = ExtResource( 4 )
 hframes = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 35 )
-anims/advance = SubResource( 37 )
-anims/die = SubResource( 38 )
-anims/shoot = SubResource( 36 )
+anims/RESET = SubResource( 2 )
+anims/advance = SubResource( 3 )
+anims/die = SubResource( 4 )
+anims/shoot = SubResource( 5 )
 
 [node name="ShootFrom" type="Node2D" parent="."]
 position = Vector2( 41, 17 )
