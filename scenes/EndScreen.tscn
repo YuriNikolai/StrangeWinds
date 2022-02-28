@@ -76,25 +76,11 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 alignment = 1
 
-[node name="DaySelectButton" type="Button" parent="HBoxContainer"]
-margin_left = 508.0
-margin_right = 958.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 450, 100 )
-focus_neighbour_left = NodePath("../QuitButton")
-focus_mode = 0
-size_flags_vertical = 4
-theme = ExtResource( 3 )
-custom_fonts/font = ExtResource( 1 )
-enabled_focus_mode = 0
-text = "MENU"
-
 [node name="QuitButton" type="Button" parent="HBoxContainer"]
-margin_left = 962.0
-margin_right = 1412.0
+margin_left = 735.0
+margin_right = 1185.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 450, 100 )
-focus_neighbour_right = NodePath("../DaySelectButton")
 focus_mode = 0
 size_flags_vertical = 4
 theme = ExtResource( 3 )
@@ -131,9 +117,6 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.682353 )
 
-[connection signal="mouse_entered" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
