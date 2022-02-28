@@ -2,7 +2,7 @@ extends Node
 
 #This is a singleton (Project > Project Settings > AutoLoad)
 
-var day = 0
+var day = 3
 var population = 0
 
 func _ready():

@@ -19,6 +19,7 @@ var sfx_flare_load2 = preload("res://sfx/flare_load2.wav")
 var sfx_trigger = preload("res://sfx/trigger.wav")
 var sfx_rifle_shoot = preload("res://sfx/rifle_shoot.wav")
 var sfx_rifle_ready = preload("res://sfx/navigation.wav")
+var sfx_rifle_grab = preload("res://sfx/rifle_grab.wav")
 
 onready var tween = get_parent().get_node("Tween")
 onready var raycast = get_parent().get_node("RayCast2D")
@@ -104,11 +105,11 @@ func fire():
 		line.queue_free()
 		can_fire_rifle = true
 		
-		for x in 3:
+		for x in 4:
 			sound = AudioStreamer.instance()
 			add_child(sound)
 			sound.play_sound(sfx_rifle_ready)
-			yield(get_tree().create_timer(0.14), "timeout")
+			yield(get_tree().create_timer(0.12), "timeout")
 
 func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with all colliders. 
 				   #Last element of array is the last collision point. If colliding with less than max_pen, last element will be 0,0.
@@ -133,6 +134,11 @@ func multi_scan(): #Scans all colliders, up to max_pen. Returns an array with al
 	
 func get_rifle():
 	is_hitscan = true
+	
+	var sound = AudioStreamer.instance()
+	add_child(sound)
+	sound.play_sound(sfx_rifle_grab)
+	
 	
 func drop_rifle():
 	is_hitscan = false
