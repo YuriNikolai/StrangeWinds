@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var hp = 10
 export var attack_range = 600
-export var attack_dmg = 30
+export var attack_dmg = 15
 export var speed = 100
 
 var AudioStreamer = preload("res://scenes/AudioStreamer.tscn")
@@ -41,9 +41,9 @@ func _physics_process(delta):
 		
 
 func _process(delta):
-#	print(ap.current_animation)
+	#print(ap.current_animation)
 	look_at(player_pos)
-	print(get_children())
+	#print(get_children())
 	match state:
 		ADVANCING:
 			#print ("Advancing state")
@@ -79,9 +79,11 @@ func hit(dmg):
 
 func shoot():
 	linespawn = true
+	
 	var sound = AudioStreamer.instance()
 	add_child(sound)
 	sound.play_sound(sfx_artilect_beam)
+	
 	line.add_point($ShootFrom.position)
 	line.add_point(to_local(get_parent().get_node("EnemiesTarget").position))
 	line.z_index = 1
@@ -91,4 +93,3 @@ func shoot():
 	line.begin_cap_mode = 2             #Rounded end
 	line.modulate = Color(1.2, 1.2, 1.2, 1)
 	line.visible = true
-

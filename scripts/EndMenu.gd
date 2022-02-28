@@ -9,8 +9,8 @@ var nhover = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
 	#$HBoxContainer/DaySelectButton.grab_focus()
+	pass
 	
 func _on_DaySelectButton_pressed():
 	sound = AudioStreamer.instance()

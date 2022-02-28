@@ -233,7 +233,7 @@ one_shot = true
 position = Vector2( 166, 162 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 34 )
-frame = 16
+frame = 24
 playing = true
 
 [node name="PortraitFrame" type="ColorRect" parent="Frame/ColorRect/AnimatedSprite"]

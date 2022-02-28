@@ -42,9 +42,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -90,7 +87,7 @@ size_flags_vertical = 4
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-text = "MAIN MENU"
+text = "MENU"
 
 [node name="QuitButton" type="Button" parent="HBoxContainer"]
 margin_left = 962.0
@@ -103,7 +100,7 @@ size_flags_vertical = 4
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-text = "QUIT GAME"
+text = "QUIT"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
@@ -133,6 +130,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.682353 )
+
 [connection signal="mouse_entered" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_pressed"]

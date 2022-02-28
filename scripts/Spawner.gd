@@ -5,7 +5,7 @@ export(PackedScene) var enemy
 onready var player = get_parent().get_node("Player")
 
 var spawn_number = 0
-var day_spawn_limit = Global.day + 1
+var day_spawn_limit = (Global.day + 2) * 2
 
 enum {
 	ARTILECT
@@ -15,7 +15,7 @@ func _on_Timer_timeout():
 	if spawn_number <= day_spawn_limit: #Still some left to spawn today
 		spawn()
 	if spawn_number > day_spawn_limit and Global.population == 0: #Every enemy dead and no more spawning
-		yield(get_tree().create_timer(7), "timeout") #Lull before end so you don't skip dialogue accidentally
+		yield(get_tree().create_timer(6), "timeout") #Lull before end so you don't skip dialogue accidentally
 		Global.day += 1
 		get_tree().change_scene("res://scenes/EndDay.tscn")
 
@@ -26,7 +26,7 @@ func spawn():
 	get_parent().add_child(enemy_instance)
 	spawn_number += 1
 	Global.population += 1
-	yield(get_tree().create_timer(0.2), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 
 
 func generate_target_point(instance):

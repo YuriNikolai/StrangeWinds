@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FX_CloudAlpha02.jpg-9277219080007496ec495e29b2db26d7.stex"
+path="res://.import/FX_CloudAlpha05.png-e9b0219be71c67bf2ed253b7879a94dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/fx/FX_CloudAlpha02.jpg"
-dest_files=[ "res://.import/FX_CloudAlpha02.jpg-9277219080007496ec495e29b2db26d7.stex" ]
+source_file="res://gfx/fx/FX_CloudAlpha05.png"
+dest_files=[ "res://.import/FX_CloudAlpha05.png-e9b0219be71c67bf2ed253b7879a94dc.stex" ]
 
 [params]
 

@@ -111,6 +111,7 @@ color = Color( 0, 0, 0, 0.682353 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/DaySelectButton" to="." method="_on_DaySelectButton_pressed"]

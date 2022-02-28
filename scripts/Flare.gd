@@ -17,7 +17,7 @@ func _physics_process(delta):
 #	print(raycast.get_collider())
 	if raycast.is_colliding() and burned != true:
 		burned = true
-		raycast.get_collider().hit(flare_damage)	
+		raycast.get_collider().hit(flare_damage)
 		queue_free()
 
 func _on_LifeTimer_timeout():

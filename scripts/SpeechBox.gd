@@ -60,11 +60,11 @@ func nextPhrase() -> void:
 		add_child(sound)
 		sound.play_sound(sfx_navigation)
 	
-	if phraseNum >= len(dialog) and dialogPath != "res://texts/day5.json": #Make this string be whatever the last dialog is
+	if phraseNum >= len(dialog) and dialogPath != "res://texts/day7.json": #Make this string be whatever the last dialog is
 		root.queue_free()
 		get_tree().change_scene("res://scenes/Level0.tscn")
 		return
-	elif phraseNum >= len(dialog) and dialogPath == "res://texts/day5.json": #Make this string be whatever the last dialog is
+	elif phraseNum >= len(dialog) and dialogPath == "res://texts/day7.json": #Make this string be whatever the last dialog is
 		root.queue_free()
 		get_tree().change_scene("res://scenes/EndScreen.tscn")
 		return

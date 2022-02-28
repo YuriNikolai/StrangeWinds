@@ -234,8 +234,8 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.5708
 texture = ExtResource( 1 )
-vframes = 3
 hframes = 32
+vframes = 3
 
 [node name="Sprite_glow" type="Sprite" parent="."]
 modulate = Color( 2, 2, 2, 1 )
