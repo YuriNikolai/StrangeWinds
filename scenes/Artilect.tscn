@@ -282,3 +282,6 @@ radial_accel = 8.89
 damping = 43.22
 scale_amount = 1.5
 color = Color( 1, 0.654902, 0, 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
