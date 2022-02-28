@@ -14,9 +14,11 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Winterjam"
+config/name="Strange Winds"
+config/description="Created in 30 days for the OGA Winter 2022 Game Jam!"
 run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://WIN_ICON.ico"
 
 [autoload]
 

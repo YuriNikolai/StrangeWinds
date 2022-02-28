@@ -3,7 +3,7 @@ extends Node2D
 export(PackedScene) var enemy
 
 onready var player = get_parent().get_node("Player")
-
+onready var fade = get_parent().get_node("ColorRect")
 var spawn_number = 0
 var day_spawn_limit = (Global.day + 2) * 2
 
@@ -20,13 +20,14 @@ func _on_Timer_timeout():
 		get_tree().change_scene("res://scenes/EndDay.tscn")
 
 func spawn():
-	var enemy_instance = enemy.instance()
-	enemy_instance.position = Vector2(get_global_position().x, get_global_position().y + rand_range(-540, 540))
-	enemy_instance.target = generate_target_point(enemy_instance)
-	get_parent().add_child(enemy_instance)
-	spawn_number += 1
-	Global.population += 1
-	yield(get_tree().create_timer(1), "timeout")
+	if fade.color.a < 0: #Delay enemy spawns until after the fade in
+		var enemy_instance = enemy.instance()
+		enemy_instance.position = Vector2(get_global_position().x, get_global_position().y + rand_range(-540, 540))
+		enemy_instance.target = generate_target_point(enemy_instance)
+		get_parent().add_child(enemy_instance)
+		spawn_number += 1
+		Global.population += 1
+		yield(get_tree().create_timer(1), "timeout")
 
 
 func generate_target_point(instance):

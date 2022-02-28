@@ -9,6 +9,7 @@ var nhover = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.population = 0 #Fixes level never ending if you die and retry
 	#$HBoxContainer/DaySelectButton.grab_focus()
 	pass
 	
