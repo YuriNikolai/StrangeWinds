@@ -171,6 +171,8 @@ Modified
 
 * AudioStreamer code snippet originally by natelastname
 
-License(s): GPL v3.0
+Link: https://www.youtube.com/watch?v=kdH7c5hjngQ
+
+License(s): GPL v3.0 (See LICENSE file)
 
 Modified
