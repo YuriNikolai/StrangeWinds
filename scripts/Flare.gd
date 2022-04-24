@@ -19,12 +19,12 @@ func _physics_process(delta):
 		if raycast[i].is_colliding() and burned != true:
 			burned = true
 			raycast[i].get_collider().hit(flare_damage)
-			spawn_hit_particles()
+			flare_hit_particles()
 
 func _on_LifeTimer_timeout():
 	queue_free()
 
-func spawn_hit_particles():
+func flare_hit_particles():
 	var hit_particles_instance = CPUParticles2D.new()
 	hit_particles_instance.emitting = true
 	hit_particles_instance.one_shot = true

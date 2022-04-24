@@ -24,7 +24,7 @@ var sfx_rifle_grab = preload("res://sfx/rifle_grab.wav")
 onready var tween = get_parent().get_node("Tween")
 onready var raycast = get_parent().get_node("RayCast2D")
 
-var can_fire : bool = true
+var can_fire_flare : bool = true
 var can_fire_rifle : bool = false
 var loading = false
 
@@ -33,8 +33,8 @@ func _ready():
 		can_fire_rifle = true
 
 func fire():
-	if !is_hitscan and can_fire:
-		can_fire = false
+	if !is_hitscan and can_fire_flare:
+		can_fire_flare = false
 		
 		var sound = AudioStreamer.instance()
 		add_child(sound)
@@ -79,9 +79,11 @@ func fire():
 					line.add_point(scan[-1])
 				for i in range(0, len(scan)-1):
 					scan[i].hit(rifle_damage)
+					scan[i].rifle_hit_particles()
 			else:            #Stopping shot. Will stop on the first collider.
 				line.add_point(raycast.get_collision_point())
 				raycast.get_collider().hit(rifle_damage)
+				raycast.get_collider().rifle_hit_particles()
 		else:                #Loose shot. Has not collided.
 			if point_1.x < point_0.x:
 				while point_1.x > -1000:
@@ -161,4 +163,4 @@ func reload():
 		yield(get_tree().create_timer(1), "timeout")
 		
 		loading = false
-		can_fire = true
+		can_fire_flare = true

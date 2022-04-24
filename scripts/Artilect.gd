@@ -73,8 +73,10 @@ func hit(dmg):
 	
 	var sound = AudioStreamer.instance()
 	add_child(sound)
-	sound.play_sound(sfx_boom) 
-	
+	sound.play_sound(sfx_boom)
+
+func rifle_hit_particles():
+	$CPUParticles2D.restart()
 	$CPUParticles2D.emitting = true
 
 func shoot():
