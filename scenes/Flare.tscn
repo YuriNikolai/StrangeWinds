@@ -52,10 +52,6 @@
 [ext_resource path="res://gfx/flare/efecto_fuego_00008.png" type="Texture" id=50]
 [ext_resource path="res://scripts/Flare.gd" type="Script" id=51]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 4.0
-height = 32.0
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 33 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 43 ), ExtResource( 22 ), ExtResource( 7 ), ExtResource( 50 ), ExtResource( 8 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 10 ), ExtResource( 39 ), ExtResource( 2 ), ExtResource( 27 ), ExtResource( 32 ), ExtResource( 42 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 40 ), ExtResource( 34 ), ExtResource( 1 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 49 ), ExtResource( 44 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 36 ), ExtResource( 29 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 28 ) ],
@@ -63,6 +59,10 @@ animations = [ {
 "name": "flare",
 "speed": 12.0
 } ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 0.0
+height = 0.0
 
 [node name="Flarebullet" type="RigidBody2D"]
 modulate = Color( 1.2, 0.65, 0.5, 1 )
@@ -72,23 +72,35 @@ contacts_reported = 1
 linear_damp = 0.7
 script = ExtResource( 51 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource( 1 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
 animation = "flare"
-frame = 9
+frame = 23
 playing = true
 
 [node name="LifeTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+position = Vector2( -20, 0 )
 enabled = true
-cast_to = Vector2( 20, 0 )
+cast_to = Vector2( 40, -3 )
+
+[node name="RayCast2DCenter" type="RayCast2D" parent="."]
+position = Vector2( -20, 0 )
+enabled = true
+cast_to = Vector2( 40, 0 )
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+position = Vector2( -20, 0 )
+enabled = true
+cast_to = Vector2( 40, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 17, 0 )
+rotation = 1.5708
+shape = SubResource( 1 )
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]

@@ -261,6 +261,7 @@ anims/shoot = SubResource( 5 )
 position = Vector2( 41, 17 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
 modulate = Color( 1.2, 1.2, 1.2, 1 )
 z_index = 1
 emitting = false
