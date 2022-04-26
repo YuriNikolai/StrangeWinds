@@ -2,6 +2,9 @@
 
 This is a 30-day project for the OpenGameArt 2022 Game Jam: https://itch.io/jam/opengameart-winter-game-jam-2022
 
+Game's itch.io page: https://yurinikolai.itch.io/strange-winds
+---
+
 Art: Yuri N. Martinez Laskowski
 
 Programming: Lui Wolff and Yuri N. Martinez Laskowski
