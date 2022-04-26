@@ -34,7 +34,7 @@ func _ready():
 	target_vector = (target-global_position).normalized()*speed
 
 func _physics_process(delta):
-	if (position.distance_to(target) < 50 or position.x < target.x) and (state != SHOOTING):
+	if (position.distance_to(target) < 50 or position.x < target.x) and (state != SHOOTING) and (state != DYING):
 		state = SHOOTING
 	elif state == ADVANCING:
 		move_and_slide(target_vector/rand_range(90, 110)*speed)
@@ -68,6 +68,7 @@ func _process(delta):
 func hit(dmg):
 	
 	hp -= dmg
+	print(hp)
 	if hp <= 0:
 		state = DYING
 	

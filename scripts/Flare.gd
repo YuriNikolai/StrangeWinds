@@ -49,3 +49,11 @@ func flare_hit_particles():
 	hit_particles_instance.position = Vector2(get_global_position().x, get_global_position().y)
 	get_tree().root.get_child(0).add_child(hit_particles_instance)
 	queue_free()
+
+#temp fixes to prevent crash when rifle hits flare. TODO: ignore flare inside rifle code.
+
+func hit(rifle_damage): 
+	pass
+
+func rifle_hit_particles():
+	pass
