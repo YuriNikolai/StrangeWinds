@@ -1,6 +1,6 @@
 # Strange Winds
 
-This is a 30-day project for the OpenGameArt 2022 Game Jam: https://itch.io/jam/opengameart-winter-game-jam-2022
+This is a 30-day project for the OpenGameArt Winter 2022 Game Jam: https://itch.io/jam/opengameart-winter-game-jam-2022
 
 Game's itch.io page: https://croomfolk.itch.io/strange-winds
 
